@@ -1,0 +1,55 @@
+/*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      farfieldProperties;
+}
+/*---------------------------------------------------------------------------*/
+
+referenceLength      #eval {17.68 * 2.54/100};
+referencePressure    9183;
+//r0 0.5334;
+//r1 1.0668;
+
+r0 0.5334;
+r1 100.584;
+
+inputNearField
+{
+    path "input/r5_v3_t0.030_h21.csv";
+    type input;
+    xUnits abs;
+    pUnits abs;
+    xColumnName "x";
+    yColumnName "p";
+}
+
+outputFiles
+{
+    file1
+    {
+        path "far_field.csv";
+        type farField;
+
+        xUnits abs;
+        pUnits rel;
+        xColumnName "x";
+        yColumnName "p";
+
+        logShocksFilePath "";
+    }
+}
+
+WhithamParams
+{
+    p0 9183;
+    p1 101325;
+    HeatCapacity         1.4;
+    MachNumber           1.6;
+    integrateStepsCount  100;
+    iterationsCount      1;
+}
+
+/*---------------------------------------------------------------------------*/

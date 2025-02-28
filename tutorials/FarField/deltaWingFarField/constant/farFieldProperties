@@ -1,0 +1,77 @@
+/*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     1.0;
+    format      ascii;
+    class       dictionary;
+    object      farfieldProperties;
+}
+/*---------------------------------------------------------------------------*/
+
+referenceLength      #eval {6.9 * 2.54/100}; // 0.17526 m
+referencePressure    9183;
+
+r0 #eval {24.8 * 2.54/100};
+r1 108.966;
+
+inputNearField
+{
+    path "./input/t0.010_rl3.6_phi0.csv";
+    type input;
+    xUnits abs;
+    pUnits abs;
+}
+
+outputFiles
+{
+    nf
+    {
+        path "output/nearField.csv";
+        type nearField;
+
+        xUnits abs;
+        pUnits rel;
+        xColumnName "x";
+        yColumnName "dp_p";
+    }
+
+    WhF
+    {
+        path "output/F-function.csv";
+        type WhithamFunction;
+
+        xColumnName "y";
+        yColumnName "F";
+    }
+
+    ff
+    {
+        path "farfield.csv";
+        type farField;
+
+        xUnits abs;
+        pUnits rel;
+        xColumnName "x";
+        yColumnName "dp_p";
+
+        logShocksFilePath "farfieldShocks.csv";
+    }
+
+    shocks
+    {
+        path "shocks/shocks.csv";
+        type shocks;
+    }
+}
+
+WhithamParams
+{
+    p0 9183;
+    p1 101325;
+    HeatCapacity         1.4;
+    MachNumber           1.7;
+    integrateStepsCount  100;
+    iterationsCount      30;
+}
+
+/*---------------------------------------------------------------------------*/

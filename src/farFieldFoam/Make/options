@@ -1,0 +1,14 @@
+EXE_INC = \
+    -I$(LIB_SRC)/OpenFOAM/lnInclude \
+    -I../libFarField/lnInclude \
+    -I../libUtils/lnInclude \
+    -g3 \
+    -Og
+
+EXE_LIBS = \
+    -L$(FOAM_USER_LIBBIN) \
+    -lOpenFOAM \
+    -lfarField \
+    -lutils \
+    -g3 \
+    -Og

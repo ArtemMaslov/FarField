@@ -1,0 +1,17 @@
+EXE_INC = \
+    -I$(LIB_SRC)/OpenFOAM/lnInclude \
+    -I../../../src/libUtils/lnInclude \
+    -I../../../src/libUtils/nVectorField \
+    -I../../../src/libUtils/csv \
+    -I../../ \
+    -lCatch2 \
+    -g3 \
+    -Og
+
+LIB_LIBS = \
+    -lOpenFOAM \
+    -lCatch2 \
+    -L${FOAM_USER_LIBBIN} \
+    -lutils \
+    -g3  \
+    -Og

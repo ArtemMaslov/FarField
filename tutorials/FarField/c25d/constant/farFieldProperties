@@ -1,0 +1,48 @@
+/*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     1.0;
+    format      ascii;
+    class       dictionary;
+    object      farfieldProperties;
+}
+/*---------------------------------------------------------------------------*/
+
+referenceLength      32.92; // m
+referencePressure    10682;
+r0 32.92;
+r1 15760;
+
+inputNearField
+{
+    path "input/t0.558_rl1_phi0.csv";
+    type input;
+    xUnits abs;
+    pUnits abs;
+}
+
+outputFiles
+{
+    file1
+    {
+        path "far_field.csv";
+        type farField;
+
+        xUnits abs;
+        pUnits rel;
+        xColumnName "x";
+        yColumnName "dp_p";
+    }
+}
+
+WhithamParams
+{
+    p0 10682;
+    p1 101325;
+    HeatCapacity         1.4;
+    MachNumber           1.6;
+    integrateStepsCount  200;
+    iterationsCount      30;
+}
+
+/*---------------------------------------------------------------------------*/

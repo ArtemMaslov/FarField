@@ -1,0 +1,56 @@
+/*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      fvSchemes;
+}
+/*---------------------------------------------------------------------------*/
+
+ddtSchemes
+{
+    default Euler;
+}
+
+gradSchemes
+{
+    default         Gauss linear;
+}
+
+divSchemes
+{
+    dbns
+    {
+        /*
+        betaFluxBarthJespersenLimiter
+        betaFluxVenkatakrishnanLimiter
+        betaFluxfirstOrderLimiter
+        hllcFluxBarthJespersenLimiter
+        hllcFluxVenkatakrishnanLimiter
+        hllcFluxfirstOrderLimiter
+        roeFluxBarthJespersenLimiter
+        roeFluxVenkatakrishnanLimiter
+        roeFluxfirstOrderLimiter
+        rusanovFluxBarthJespersenLimiter
+        rusanovFluxVenkatakrishnanLimiter
+        rusanovFluxfirstOrderLimiter
+        */
+        flux           rusanov;
+        limiter        Venkatakrishnan;
+    }
+}
+
+laplacianSchemes
+{}
+
+interpolationSchemes
+{
+    default               none;
+    interpolate(rho)      linear;
+}
+
+snGradSchemes
+{}
+
+/*---------------------------------------------------------------------------*/

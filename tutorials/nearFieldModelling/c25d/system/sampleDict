@@ -1,0 +1,46 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | foam-extend: Open Source CFD                    |
+|  \\    /   O peration     | Version:     5.0                                |
+|   \\  /    A nd           | Web:         http://www.foam-extend.org         |
+|    \\/     M anipulation  | For copyright notice see file Copyright         |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      sampleDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+interpolationScheme cellPoint;
+
+setFormat     raw;
+
+sets
+(
+    r5_phi0
+    {
+        type            uniform;
+        axis            x; //x-axis in plot
+        start           (  -5.5 1e-4 -5);
+        end             ( 289.7 1e-4 -5);
+        nPoints         10000;
+    }
+    rl1_phi0
+    {
+        type            uniform;
+        axis            x; //x-axis in plot
+        start           (  -5.5 1e-4 -32.92);
+        end             ( 289.7 1e-4 -32.92);
+        nPoints         10000;
+    }
+);
+
+fields
+(
+    p
+);
+
+// *********************************************************************** //

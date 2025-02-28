@@ -1,0 +1,95 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | foam-extend: Open Source CFD                    |
+|  \\    /   O peration     | Version:     5.0                                |
+|   \\  /    A nd           | Web:         http://www.foam-extend.org         |
+|    \\/     M anipulation  | For copyright notice see file Copyright         |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      sampleDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+interpolationScheme cellPoint;
+
+setFormat     raw;
+
+sets
+(
+    rl3.6_phi0
+    {
+        type        uniform;
+        axis        x;
+        start       (-0.02 1e-6 -0.62992);
+        end         ( 1.74 1e-6 -0.62992);
+        nPoints     10000;
+    }
+    rl3.6_phi30
+    {
+        type        uniform;
+        axis        x;
+        start       (-0.02 0.31496 -0.54553);
+        end         ( 1.74 0.31496 -0.54553);
+        nPoints     10000;
+    }
+    rl3.6_phi60
+    {
+        type        uniform;
+        axis        x;
+        start       (-0.02 0.54553 -0.31496);
+        end         ( 1.74 0.54553 -0.31496);
+        nPoints     10000;
+    }
+    rl3.6_phi90
+    {
+        type        uniform;
+        axis        x;
+        start       (-0.02 0.62992 0);
+        end         ( 1.74 0.62992 0);
+        nPoints     10000;
+    }
+
+    rl4.6_phi0
+    {
+        type        uniform;
+        axis        x;
+        start       (-0.02 1e-6 -0.80772);
+        end         ( 1.74 1e-6 -0.80772);
+        nPoints     10000;
+    }
+    rl4.6_phi30
+    {
+        type        uniform;
+        axis        x;
+        start       (-0.02 0.40386 -0.69951);
+        end         ( 1.74 0.40386 -0.69951);
+        nPoints     10000;
+    }
+    rl4.6_phi60
+    {
+        type        uniform;
+        axis        x;
+        start       (-0.02 0.69951 -0.40386);
+        end         ( 1.74 0.69951 -0.40386);
+        nPoints     10000;
+    }
+    rl4.6_phi90
+    {
+        type        uniform;
+        axis        x;
+        start       (-0.02 0.80772 0);
+        end         ( 1.74 0.80772 0);
+        nPoints     10000;
+    }
+);
+
+fields
+(
+    p
+);
+
+// *********************************************************************** //

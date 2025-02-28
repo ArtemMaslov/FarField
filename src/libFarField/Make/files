@@ -1,0 +1,21 @@
+dists/fyDist.C
+dists/pxDist.C
+dists/shock.C
+
+filesHandler/files.C
+filesHandler/filesIO.C
+filesHandler/filesHandler.C
+
+equalAreaRule/computeAreaIntegralSimple.C
+equalAreaRule/equalAreaRuleSimple.C
+equalAreaRule/interval.C
+equalAreaRule/intervalIO.C
+equalAreaRule/polyline.C
+equalAreaRule/polylineIO.C
+
+unitsTypeIO.C
+options.C
+helperPoints.C
+WhithamFarField.C
+
+LIB = $(FOAM_USER_LIBBIN)/libfarField

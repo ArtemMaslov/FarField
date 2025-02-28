@@ -1,0 +1,49 @@
+/*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+/*---------------------------------------------------------------------------*/
+
+application     dbnsFoam;
+
+startFrom       latestTime; //latestTime; // startTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         2;
+
+deltaT          1e-10;
+
+// timeStep - шаги по времени.
+// runTime  - время в моделировании.
+writeControl    timeStep;
+writeInterval   10000;
+
+purgeWrite      3;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+
+adjustTimeStep  yes;
+maxCo           0.3;
+
+functions
+{
+}
+
+/*---------------------------------------------------------------------------*/

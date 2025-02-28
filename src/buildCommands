@@ -1,0 +1,44 @@
+#!/bin/bash
+
+#------------------------------------------------------------------------------
+
+function WMakeDir
+{
+    folderPath=$1
+    currPath=${PWD}
+    shift
+    args=$*
+    export FOAM_EXTRA_CXXFLAGS="-Og -g3"
+
+    bear --append --config ./.bear-cit-config \
+        --output ./${folderPath}/compile_commands.json -- wmake all -j ${args} ${folderPath}
+}
+
+function WCleanDir
+{
+    folderPath=$1
+    shift
+    args=$*
+
+    rm -f ${folderPath}/compile_commands.json
+    rm -fr ${folderPath}/.cache
+    wclean -all ${args} ${folderPath}
+}
+
+function WCleanTestDir
+{
+    WCleanDir $*
+
+    folderPath=$1
+    shift
+    args=$*
+
+    rm -rf ${folderPath}/output
+    rm -f ${folderPath}/RunTests
+}
+
+export -f WMakeDir
+export -f WCleanDir
+export -f WCleanTestDir
+
+#------------------------------------------------------------------------------

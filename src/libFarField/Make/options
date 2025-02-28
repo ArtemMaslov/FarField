@@ -1,0 +1,13 @@
+EXE_INC = \
+    -I$(LIB_SRC)/OpenFOAM/lnInclude \
+    -I../libUtils/lnInclude \
+    -I./equalAreaRule \
+    -g3 \
+    -O0
+
+LIB_LIBS = \
+    -L$(FOAM_USER_LIBBIN) \
+    -lOpenFOAM \
+    -lutils \
+    -g3 \
+    -O0
